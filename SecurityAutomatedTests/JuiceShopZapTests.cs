@@ -8,7 +8,7 @@ public class JuiceShopZapTests
 {
     private IWebDriver _driver;
     private WebDriverWait _wait;
-    private const string URL = "http://juice-shop.herokuapp.com";
+    private const string URL = "http://juice-shop.herokuapp.com/";
 
     [SetUp]
     public void TestInit()
@@ -16,7 +16,7 @@ public class JuiceShopZapTests
         new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
         ChromeOptions options = new ChromeOptions();
         options.AddArgument("--proxy-server=http://localhost:8088"); // ZAP running on port 8088
-
+        //options.AddArgument("--ignore-certificate-errors");
         _driver = new ChromeDriver(options);
         _driver.Manage().Window.Maximize();
 
